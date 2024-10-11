@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment for Stock Market Course</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Complete Your Enrollment</h1>
+        <p>Pay ₹3000 to access the Advanced Stock Market Trading Course.</p>
+    </header>
+    <main>
+        <section id="payment-options">
+            <h2>Select Payment Method</h2>
+            <!-- PayPal Button -->
+            <div id="paypal-button-container"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Advanced Trading Course. All rights reserved.</p>
+    </footer>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '3000.00' // Amount to be charged
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().t
